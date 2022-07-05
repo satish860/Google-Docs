@@ -6,12 +6,16 @@
     "start": "next start"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^6.1.1",
+    "@fortawesome/fontawesome-svg-core": "^6.1.1",
+    "@fortawesome/free-regular-svg-icons": "^6.1.1",
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@material-tailwind/react": "^1.0.6",
+    "@next-auth/firebase-adapter": "^0.1.2-pr.183-76202b42.8",
+    "firebase": "^9.8.4",
     "material-icons": "^1.11.4",
     "next": "latest",
+    "next-auth": "^4.8.0",
     "react": "18.1.0",
     "react-dom": "18.1.0"
   },

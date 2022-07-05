@@ -1,8 +1,10 @@
-import { Button, IconButton } from "@material-tailwind/react";
+import { IconButton } from "@material-tailwind/react";
+import { signOut, useSession } from "next-auth/react";
 import Image from "next/image";
 import React from "react";
 
 const Header = () => {
+  const { data: session } = useSession();
   return (
     <div
       className="flex items-center 
@@ -11,8 +13,12 @@ const Header = () => {
     >
       <div className="flex cursor-pointer">
         <span className="material-icons-round cursor-pointer">menu</span>
-        <Image src="/Docs.png" width={30} height={30} 
-        className="rounded-lg cursor-pointer" />
+        <Image
+          src="/Docs.png"
+          width={30}
+          height={30}
+          className="rounded-lg cursor-pointer"
+        />
         <h3 className="text-xl px-2 text-gray-600">Docs</h3>
       </div>
 
@@ -34,7 +40,9 @@ const Header = () => {
       <div className="flex items-center ">
         <span className="material-icons-round">apps</span>
         <Image
-          src="/satish.jpg"
+          loading="lazy"
+          src={session?.user?.image ?? "/satish.jpg"}
+          onClick={() => signOut()}
           width={30}
           height={30}
           className="cursor-pointer h-12 w-12 rounded-full ml-6"
