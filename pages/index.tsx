@@ -1,18 +1,18 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
+import type { NextPage } from "next";
+import Head from "next/head";
+import Header from "../components/Header";
 
 const Home: NextPage = () => {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center py-2">
+    <div>
       <Head>
         <title>Google Docs</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/docs.ico"/>
       </Head>
 
-      <h1>Hello World!!</h1>
+      <Header />
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
