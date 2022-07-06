@@ -12,13 +12,15 @@
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@material-tailwind/react": "^1.0.6",
     "@next-auth/firebase-adapter": "^0.1.2-pr.183-76202b42.8",
+    "draft-js": "^0.11.7",
     "firebase": "^9.8.4",
     "material-icons": "^1.11.4",
     "nanoid": "^4.0.0",
     "next": "latest",
     "next-auth": "^4.8.0",
     "react": "18.1.0",
-    "react-dom": "18.1.0"
+    "react-dom": "18.1.0",
+    "react-draft-wysiwyg": "^1.14.7"
   },
   "devDependencies": {
     "@types/node": "17.0.35",

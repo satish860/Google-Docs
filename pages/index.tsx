@@ -16,6 +16,7 @@ import {
 } from "firebase/firestore";
 import { nanoid } from "nanoid";
 
+
 const Home: NextPage = () => {
   const { data: session } = useSession();
   const router = useRouter();
