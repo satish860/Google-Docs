@@ -4,10 +4,39 @@ import Image from "next/image";
 import Header from "../components/Header";
 import { useSession, signIn, signOut } from "next-auth/react";
 import Login from "../components/Login";
+import { useRouter } from "next/router";
+import { db } from "../firebase";
+import {
+  addDoc,
+  collection,
+  doc,
+  Firestore,
+  serverTimestamp,
+  setDoc,
+} from "firebase/firestore";
+import { nanoid } from "nanoid";
 
 const Home: NextPage = () => {
   const { data: session } = useSession();
+  const router = useRouter();
   console.log(session);
+
+  const createNewDocument = async () => {
+    var nanoId = nanoid();
+    const colref = collection(db, "userdocs");
+    const docref = doc(
+      db,
+      "userdocs/users",
+      session?.user?.email ?? "loggedinuser",
+      nanoId
+    );
+    await setDoc(docref, {
+      title: "New Document",
+      createdOn: serverTimestamp(),
+    });
+    router.push(`/doc/${nanoId}`);
+  };
+
   if (!session) {
     return <Login />;
   } else {
@@ -27,6 +56,7 @@ const Home: NextPage = () => {
             </div>
             <div>
               <div
+                onClick={() => createNewDocument()}
                 className="relative 
             h-52 w-40 
             cursor-pointer border-2 border-transparent hover:border-blue-700"
